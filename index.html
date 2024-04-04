@@ -14,55 +14,71 @@
         <div id="interface">
             <div id="nameDisplay">请开始</div>
             <button onclick="clickButton(this)">开始</button>
-            <div class="tips">Developed by <strong title="Github" onclick="Vincy()">Vincy(Ruiqiang
-                    Yuan)</strong><br>Vincy(Ruiqiang Yuan)2024</div>
+            <div class="tips">Developed by <strong title="Github" onclick="Leo()">Leo(Ruiqiang
+                    Yuan)</strong><br>Leo(Ruiqiang Yuan)2024</div>
         </div>
-
     </section>
     <script type="text/javascript" src="data.txt"></script>
     <script>
-        
+
         var length = names.length;
 
         var displayBoard = document.getElementById("nameDisplay");
+        var selectedName = "";
 
         mytime = null
-        function Vincy() {
+        function Leo() {
             location.href = "";
         }
 
         function clickButton(btn) {
             var text = btn.innerHTML;
-            console.log(text);
 
             if (text == "开始") {
                 btn.innerHTML = "停";
-
+                console.log(1);
                 if (mytime == null) {
                     mytime = setInterval(function () {
-                        var name = randomName();
-                        console.log(name);
-                        displayBoard.innerHTML = name;
+                        selectedName = randomName();
+                        displayBoard.innerHTML = selectedName;
                     }, 100);
                 }
 
             } else if (text == "停") {
                 btn.innerHTML = "开始";
-
                 if (mytime != null) {
                     clearInterval(mytime);
                     mytime = null;
+                    removeSelectedName(selectedName);
+
+                    if (names.length === 0) {
+                        displayBoard.innerHTML = "列表已抽完";
+                    }
+                }
+            }
+
+        }
+
+        function randomName() {
+            var randomNum = Math.floor(Math.random() * length);
+            return names[randomNum];
+        }
+
+        function removeSelectedName(name) {
+            if (!Recurring) {
+                var index = names.indexOf(name);
+                if (index !== -1) {
+                    names.splice(index, 1);
+                    length = names.length;
                 }
             }
 
 
         }
-
-        function randomName() {
-            var randomNum = Math.ceil(Math.random() * 4000) % length + 1;
-            return names[randomNum - 1];
-        }
     </script>
+
+
+
     <style>
         @font-face {
             font-family: 'Smiley Sans';
