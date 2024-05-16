@@ -50,4 +50,4 @@ var names = [
     "冯钰茹"
 ];
 
-var Recurring = false; //是否重复？ true为需要重复，false为不需要重复(此时将会执行：一个人只能被抽到一次，直到所有人都被抽完)
+var Recurring = true; //是否重复？ true为需要重复，false为不需要重复(此时将会执行：一个人只能被抽到一次，直到所有人都被抽完)
