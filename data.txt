@@ -45,7 +45,9 @@ var names = [
     "赵宇轩",
     "钟富霖",
     "周敬乔",
-    "<strong>Leo Yuan</strong>"
+    "王钰淇",
+    "陈雅馨",
+    "冯钰茹"
 ];
 
 var Recurring = false; //是否重复？ true为需要重复，false为不需要重复(此时将会执行：一个人只能被抽到一次，直到所有人都被抽完)
